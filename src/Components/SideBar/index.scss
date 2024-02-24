@@ -1,0 +1,27 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+  .line {
+    background: #fff;
+    width: 2px;
+    height: 188px;
+    margin: 44px auto;
+  }
+  &-media {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    img {
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      user-select: none;
+      -drag: none;
+      -moz-user-select: none;
+      -webkit-user-drag: none;
+      -webkit-user-select: none;
+    }
+  }
+}
