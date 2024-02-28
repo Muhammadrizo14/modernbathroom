@@ -48,14 +48,103 @@
 
 
 
-    .bathroom {
+
+    .bg-image {
       position: absolute;
-      background: #000;
-      width: 60%;
       top: 0;
       right: 0;
+      width: 60%;
       height: 100vh;
+      background: #000;
+
+      .bathroom {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+      .right-content {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 3;
+        display: flex;
+        justify-content: right;
+        .slider-slides {
+          position: absolute;
+          bottom: 0;
+          left: 30px;
+          img {
+            cursor: pointer;
+          }
+        }
+        .right-content-menu {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          padding: 54px 65px 51px 0;
+          text-align: right;
+
+          .burger {
+            cursor: pointer;
+          }
+          .right-content-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            overflow: hidden;
+            li {
+              cursor: pointer;
+              font-size: 20px;
+              list-style: none;
+              display: flex;
+              align-items: center;
+              justify-content: right;
+              &:hover {
+                &::after {
+                  margin-left: 10px;
+                  display: block;
+                  content: '';
+                  width: 15px;
+                  height: 15px;
+                  background: #fff;
+                  border-radius: 100%;
+                }
+              }
+            }
+          }
+          .arrows {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            .arrow {
+              border-radius: 2px;
+              padding: 13px 19px;
+              cursor: pointer;
+              &:nth-child(1) {
+                svg {
+                  transform: rotate(180deg);
+                }
+              }
+            }
+            .disable {
+              background: #161616;
+              svg {
+                fill: #fff;
+              }
+            }
+            .able {
+              background: #FFE600;
+              svg {
+                fill: #000;
+              }
+            }
+          }
+        }
+      }
     }
+
+
 
 
     .bg-color {

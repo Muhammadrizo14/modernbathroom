@@ -3,17 +3,24 @@
   flex-direction: column;
   justify-content: left;
   align-items: center;
+  .df {
+    display: flex;
+    align-items: center;
+  }
   .line {
     background: #fff;
     width: 2px;
     height: 188px;
     margin: 44px auto;
   }
+  .line-hidden {
+    background: transparent;
+  }
   &-media {
     display: flex;
     flex-direction: column;
     gap: 35px;
-    img {
+    .media {
       cursor: pointer;
       width: 40px;
       height: 40px;
@@ -22,6 +29,7 @@
       -moz-user-select: none;
       -webkit-user-drag: none;
       -webkit-user-select: none;
+
     }
   }
 }
