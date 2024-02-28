@@ -71,6 +71,7 @@
         justify-content: right;
         .slider-slides {
           position: absolute;
+          overflow: hidden;
           bottom: 0;
           left: 30px;
           img {
@@ -113,6 +114,7 @@
             }
           }
           .arrows {
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;

@@ -76,6 +76,22 @@ function App() {
         opacity: 1,
         stagger: 0.5,
       }, '-=2')
+      .fromTo('.slider-slides img', {
+        y: 100,
+        opacity: 0
+      }, {
+        y: 0,
+        opacity: 1,
+        stagger: 0.5,
+      }, '-=2')
+      .fromTo('.arrows .arrow', {
+        y: 100,
+        opacity: 0
+      }, {
+        y: 0,
+        opacity: 1,
+        stagger: 0.5,
+      }, '-=2')
   }, {scope: container})
 
   return (
