@@ -50,37 +50,48 @@ function App() {
   const [counter, setCounter] = useState(0)
 
 
-  const nextBg = () => {
+  const nextBg = async () => {
 
     if (counter + 1 === backGround.length) {
-      tl.current = gsap
-        .timeline()
-        .to(`.bathroom${backGround[counter].id}`, {x: '-100%', opacity: 0, ease: 'power4.inOut', duration: .7})
-        .fromTo(`.bathroom${backGround[0].id}`, {x: '-100%', opacity: 0,}, {
-          x: 0,
-          ease: 'power4.inOut',
-          opacity: 1,
-          duration: .7
-        }, '-=.6')
-
-      backGround[0].active = 'active'
-      backGround[counter].active = ''
       setCounter(0)
-    } else {
-      console.log(2)
-      backGround[counter + 1].active = 'active'
-      backGround[counter].active = ''
-      setCounter(prev => prev + 1)
+      backGround[0].active = 'active'
+
       tl.current = gsap
         .timeline()
         .to(`.bathroom${backGround[counter].id}`, {x: '-100%', opacity: 0, ease: 'power4.inOut', duration: .7})
-        .fromTo(`.bathroom${backGround[counter + 1].id}`, {x: '-100%', opacity: 0,}, {
-          x: 0,
-          duration: .7,
-          ease: 'power4.inOut',
-          opacity: 1
-        }, '-=.6')
+        .fromTo(`.bathroom${backGround[0].id}`,
+          {
+            x: '-100%', opacity: 0
+          }, {
+            x: '0%',
+            ease: 'power4.inOut',
+            opacity: 1,
+            duration: .7
+          }, '-=.4')
+        .then(() => {
+          console.log(1)
+          backGround[counter].active = ''
+        })
+    } else {
+      backGround[counter + 1].active = 'active'
+      setCounter(prev => prev + 1)
 
+      tl.current = gsap
+        .timeline()
+        .to(`.bathroom${backGround[counter].id}`, {x: '100%', opacity: 0, ease: 'power4.inOut', duration: .7})
+        .fromTo(`.bathroom${backGround[counter + 1].id}`,
+          {
+            x: '-100%',
+            opacity: 0
+          }, {
+            x: '0%',
+            ease: 'power4.inOut',
+            opacity: 1,
+            duration: .7
+          }, '-=.4')
+        .then(() => {
+          backGround[counter].active = ''
+        })
 
     }
   }
