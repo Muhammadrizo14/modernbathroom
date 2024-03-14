@@ -6,9 +6,27 @@ import {gsap} from "gsap";
 
 const Index = () => {
   const tl = useRef()
+  const logoTl = useRef()
   const container = useRef()
 
   useGSAP(() => {
+    logoTl.current = gsap
+      .timeline()
+      .to('.logo-big-letter', {
+        x: 0,
+        opacity: 1,
+      })
+      .to('.logo-ordinary-letter-left', {
+        x: 0,
+        opacity: 1,
+      })
+      .to('.logo-ordinary-letter-top', {
+        y: 0,
+        opacity: 1,
+        stagger: 0.3,
+      })
+    logoTl.current.pause();
+
     tl.current = gsap
       .timeline()
       .fromTo(".logo", {
@@ -30,10 +48,23 @@ const Index = () => {
       .fromTo('.line2', {height: 0}, {height: 188, ease: 'power2.out',})
   }, {scope: container});
 
+
+  const animationsEnterHandler = () => {
+    logoTl.current.play()
+  }
+
+  const animationsLeaveHandler = () => {
+    logoTl.current.reverse()
+  }
+
   return (
     <div className='sidebar' ref={container}>
-      <div className="logo">
-        <h1>Pd</h1>
+      <div className="logo" onMouseEnter={() => animationsEnterHandler()} onMouseLeave={() =>animationsLeaveHandler()}>
+        <h3>P</h3>
+        <h3 className='logo-ordinary-letter-left' >e</h3>
+        <h3 className='logo-big-letter'>d</h3>
+        <h3 className='logo-ordinary-letter-top'>r</h3>
+        <h3 className='logo-ordinary-letter-top'>o</h3>
       </div>
       <div className="df">
         <div className='line line1'></div>

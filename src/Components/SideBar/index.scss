@@ -3,6 +3,31 @@
   flex-direction: column;
   justify-content: left;
   align-items: center;
+  .logo {
+    display: flex;
+    //overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    width: 35px;
+    margin: 0 auto;
+    //&:hover {
+    //  width: auto;
+    //}
+    h3 {
+      font-size: 26px;
+    }
+    .logo-big-letter {
+      transform: translateX(-15px);
+    }
+    .logo-ordinary-letter-left {
+      transform: translateX(-90px);
+      opacity: 0;
+    }
+    .logo-ordinary-letter-top {
+      transform: translateY(-25px);
+      opacity: 0;
+    }
+  }
   .df {
     display: flex;
     align-items: center;
